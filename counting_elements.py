@@ -20,12 +20,16 @@ print(solution(3, [1, 3, 1, 3, 2, 1, 3]))
 def solution(N, A):
     count = [0] * N
     max_count = 0
+    last_max = False
     for val in A:
-        if val == N + 1:
+        if val == N + 1 and last_max == False:
             count = [max_count] * N
+            last_max = True
             continue
-        count[val - 1] += 1
-        max_count = max(count[val - 1], max_count)
+        if val <= N:
+            count[val - 1] += 1
+            max_count = max(count[val - 1], max_count)
+            last_max = False
     return count
 
 print(solution(5, [3, 4, 4, 6, 1, 4, 4]))
