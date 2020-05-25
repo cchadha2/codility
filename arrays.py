@@ -8,7 +8,7 @@ def solution(A, K):
         A.insert(0, A.pop())
     return A
 
-# OddOccurerencesInArray 
+# OddOccurrencesInArray 
 def solution(A):
     for x, occ in Counter(A).items():
         if occ % 2:
