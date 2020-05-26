@@ -1,5 +1,6 @@
 from collections import Counter
 
+
 # CyclicRotation
 def solution(A, K):
     if not A:
@@ -7,6 +8,7 @@ def solution(A, K):
     for _ in range(K):
         A.insert(0, A.pop())
     return A
+
 
 # OddOccurrencesInArray 
 def solution(A):

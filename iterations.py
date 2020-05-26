@@ -1,3 +1,4 @@
+# BinaryGap
 def solution(N):
     def counter(n):
         count = 0

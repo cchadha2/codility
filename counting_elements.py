@@ -10,11 +10,6 @@ def solution(X, A):
                 return idx
     return -1
 
-print(solution(5, [1, 3, 1, 4, 2, 3, 5, 4]))
-print(solution(6, [1, 2]))
-print(solution(0, []))
-print(solution(2, [2,2,2,2]))
-print(solution(3, [1, 3, 1, 3, 2, 1, 3]))
 
 # MaxCounters
 def solution(N, A):
@@ -32,7 +27,28 @@ def solution(N, A):
             last_max = False
     return count
 
-print(solution(5, [3, 4, 4, 6, 1, 4, 4]))
-print(solution(1, []))
-print(solution(3, [1, 2]))
-print(solution(5, [2, 2]))
+
+# MissingInteger
+def solution(A):
+    filtered = [elem for elem in A if elem > 0]
+    if not filtered:
+        return 1
+    count = [False] * 1000000
+    for elem in filtered:
+        if count[elem - 1]:
+            continue
+        count[elem - 1] = True
+    return count.index(False) + 1
+
+
+# PermCheck
+def solution(A):
+    maximum = max(A)
+    if len(A) < maximum:
+        return 0
+    count = [False] * maximum
+    for elem in A:
+        if count[elem - 1]:
+            return 0
+        count[elem - 1] = True
+    return 1 if all(count[:maximum]) else 0
