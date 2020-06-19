@@ -41,3 +41,23 @@ def solution(A):
 A = [1, 5, 2, 1, 4, 0]
 
 print(solution(A))
+
+# Triangle
+def solution(A):
+    A.sort()
+    n = len(A)
+    for triplet in range(n, -1, -1):
+        try:
+            a, b, c = A[triplet - 3 : triplet]
+        except ValueError:
+            return 0
+        if a + b > c and a + c > b and b + c > a:
+            return 1
+    else:
+        return 0
+
+A = [10, 2, 5, 1, 8, 20]
+
+print(solution(A))
+
+print(solution([10, 50, 5, 1]))
